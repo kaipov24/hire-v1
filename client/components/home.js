@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import Head from './head'
-// import wave from '../assets/images/wave.jpg'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import Users from './users'
+import { getUsers } from '../redux/reducers/resumes'
+
 
 const Home = () => {
-  const [counter, setCounterNew] = useState(0)
+  const dispatch = useDispatch()
+  const users = useSelector((store) => store.resumes.users)
 
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [users])
   return (
-    <div>
-      <Head title="Hello" />
-      <img alt="wave" src="images/wave.jpg" />
-      <button type="button" onClick={() => setCounterNew(counter + 1)}>
-        updateCounter
-      </button>
-      <div> Hello World Dashboard {counter} </div>
+    <div className="bg-indigo-200 h-screen">
+      <Users />
+
     </div>
   )
 }

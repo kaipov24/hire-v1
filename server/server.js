@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser'
 
 import config from './config'
 import Html from '../client/html'
-import Item from '../server/model/Item.model'
+import User from './model/User.model'
 import mongooseService from './services/mongoose'
 
 mongooseService.connect()
@@ -47,9 +47,32 @@ const middleware = [
 
 middleware.forEach((it) => server.use(it))
 
-server.get('/api/v1/items', async (req, res) => {
-  const item = await Item.find({})
-  res.json(item)
+server.get('/api/v1/users', async (req, res) => {
+  const users = await User.find({})
+  res.json(users)
+})
+
+server.post('/api/v1/users', async (req, res) => {
+  const { firstName, lastName, email, age, skills, education, experience } = req.body
+  const newUser = await User.create({ firstName, lastName, email, age, skills, education, experience })
+  res.json(newUser)
+})
+
+server.delete('/api/v1/users/:id', async (req, res) => {
+  const { id } = req.params
+  const newUser = await User.deleteOne({ _id: id })
+  res.json(newUser)
+})
+
+server.patch('/api/v1/users/:id', async (req, res) => {
+  const { firstName, lastName, email, age, skills, education, experience } = req.body
+  const { id } = req.params
+  const newUser = await User.updateOne(
+    { _id: id },
+    { $set: { firstName, lastName, email, age, skills, education, experience } },
+    { upsert: false }
+  )
+  res.json(newUser)
 })
 
 // server.get('/api/v1/resumes', async (req, res) => {
