@@ -75,37 +75,6 @@ server.patch('/api/v1/users/:id', async (req, res) => {
   res.json(newUser)
 })
 
-// server.get('/api/v1/resumes', async (req, res) => {
-//   const getResumes = await readFile(`${__dirname}/resumes.json`, { encoding: 'utf8' })
-//     .then((data) => JSON.parse(data))
-//     .catch(async () => [])
-//   res.json(getResumes)
-// })
-
-// server.patch('/api/v1/resumes', async (req, res) => {
-//   const getResumes = await readFile(`${__dirname}/resumes.json`, {
-//     encoding: 'utf8'
-//   }).then((data) => JSON.parse(data))
-//   const newReqBody = req.body
-//   newReqBody.id = +getResumes[getResumes.length - 1].id + 1 || 0
-//   const newResumes = [...getResumes, newReqBody]
-//   await writeFile(`${__dirname}/resumes.json`, JSON.stringify(newResumes), { encoding: 'utf8' })
-//   res.json({ newResumes })
-// })
-
-// server.patch('/api/v1/resumes/:id', async (req, res) => {
-//   const getResumes = await readFile(`${__dirname}/resumes.json`, {
-//     encoding: 'utf8'
-//   }).then((data) => JSON.parse(data))
-//   const { id } = req.params
-//   const { firstName, lastName, skills, experience } = req.body
-//   const newResumes = getResumes.map((it) =>
-//     it.id === +id ? { id: +id, firstName, lastName, skills, experience } : it
-//   )
-//   await writeFile(`${__dirname}/resumes.json`, JSON.stringify(newResumes), { encoding: 'utf8' })
-//   res.json({ newResumes })
-// })
-
 server.use('/api/', (req, res) => {
   res.status(404)
   res.end()

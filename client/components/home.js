@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Users from './users'
+import AddNewUser from './add_new_user'
 import { getUsers } from '../redux/reducers/resumes'
 
 
@@ -13,6 +14,7 @@ const Home = () => {
   }, [users])
   return (
     <div className="bg-indigo-200 h-screen">
+      <AddNewUser />
       <Users />
 
     </div>

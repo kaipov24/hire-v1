@@ -1,14 +1,12 @@
 import axios from 'axios'
 
 const GET_USERS = 'GET_USERS'
-const ADD_NEW_ITEM = 'ADD_NEW_ITEM'
-const DELETE_ITEM = 'DELETE_ITEM'
-const EDIT_ITEM = 'EDIT_ITEM'
+const ADD_NEW_USER = 'ADD_NEW_USER'
+
 
 const initialState = {
   users: [],
-  newItem: {},
-  id: ''
+  newUser: {}
 }
 
 export default (state = initialState, action) => {
@@ -18,24 +16,18 @@ export default (state = initialState, action) => {
         ...state,
         users: action.users
       }
-    case DELETE_ITEM:
+
+    case ADD_NEW_USER:
       return {
         ...state,
-        id: action.id
-      }
-    case EDIT_ITEM:
-      return {
-        ...state,
-        id: action.id
-      }
-    case ADD_NEW_ITEM:
-      return {
-        ...state,
-        newItem: {
-          title: action.title,
-          category: action.category,
-          description: action.description,
-          price: action.price
+        newUser: {
+          firstName: action.firstName,
+          lastName: action.lastName,
+          skills: action.skills,
+          email: action.email,
+          age: action.age,
+          education: action.education,
+          experience: action.experience
         }
       }
     default:
@@ -51,49 +43,21 @@ export function getUsers() {
   }
 }
 
-export function addNewItem(title, category, description, price) {
+export function addNewUser(firstName, lastName, email, age, skills, education, experience ) {
   return (dispatch) => {
     axios({
       method: 'post',
-      url: `/api/v1/items`,
-      data: { title, category, description, price }
+      url: `/api/v1/users`,
+      data: { firstName, lastName, email, age, skills, education, experience }
     }).then((data) => {
       dispatch({
-        type: ADD_NEW_ITEM,
-        title: data.title,
-        category: data.category,
-        description: data.description,
-        price: data.price
-      })
-    })
-  }
-}
-
-export function deleteItem(id) {
-  return (dispatch) => {
-    axios({
-      method: 'delete',
-      url: `/api/v1/items/${id}`
-    }).then((data) => {
-      dispatch({ type: DELETE_ITEM, id: data.id })
-    })
-  }
-}
-
-export function editSelectedItem(id, title, category, description, price) {
-  return (dispatch) => {
-    axios({
-      method: 'patch',
-      url: `/api/v1/items/${id}`,
-      data: { id, title, category, description, price }
-    }).then((data) => {
-      dispatch({
-        type: EDIT_ITEM,
-        id: data.id,
-        title: data.title,
-        category: data.category,
-        description: data.description,
-        price: data.price
+        type: ADD_NEW_USER,
+        lastName: data.lastName,
+        skills: data.skills,
+        email: data.email,
+        age: data.age,
+        education: data.education,
+        experience: data.experience
       })
     })
   }
