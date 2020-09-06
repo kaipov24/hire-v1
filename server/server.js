@@ -5,22 +5,26 @@ import bodyParser from 'body-parser'
 import sockjs from 'sockjs'
 import { renderToStaticNodeStream } from 'react-dom/server'
 import React from 'react'
-
 import cookieParser from 'cookie-parser'
+
 import config from './config'
 import Html from '../client/html'
+import Item from '../server/model/Item.model'
+import mongooseService from './services/mongoose'
+
+mongooseService.connect()
+
+// const User = new Item({
+//   title: "String1",
+//   category: "String1",
+//   description: "String1",
+//   price: "String1"
+// })
+// User.save()
 
 const Root = () => ''
 
 try {
-  // eslint-disable-next-line import/no-unresolved
-  // ;(async () => {
-  //   const items = await import('../dist/assets/js/root.bundle')
-  //   console.log(JSON.stringify(items))
-
-  //   Root = (props) => <items.Root {...props} />
-  //   console.log(JSON.stringify(items.Root))
-  // })()
   console.log(Root)
 } catch (ex) {
   console.log(' run yarn build:prod to enable ssr')
@@ -31,6 +35,8 @@ let connections = []
 const port = process.env.PORT || 8090
 const server = express()
 
+// const { readFile, writeFile } = require('fs').promises
+
 const middleware = [
   cors(),
   express.static(path.resolve(__dirname, '../dist/assets')),
@@ -40,6 +46,42 @@ const middleware = [
 ]
 
 middleware.forEach((it) => server.use(it))
+
+server.get('/api/v1/items', async (req, res) => {
+  const item = await Item.find({})
+  res.json(item)
+})
+
+// server.get('/api/v1/resumes', async (req, res) => {
+//   const getResumes = await readFile(`${__dirname}/resumes.json`, { encoding: 'utf8' })
+//     .then((data) => JSON.parse(data))
+//     .catch(async () => [])
+//   res.json(getResumes)
+// })
+
+// server.patch('/api/v1/resumes', async (req, res) => {
+//   const getResumes = await readFile(`${__dirname}/resumes.json`, {
+//     encoding: 'utf8'
+//   }).then((data) => JSON.parse(data))
+//   const newReqBody = req.body
+//   newReqBody.id = +getResumes[getResumes.length - 1].id + 1 || 0
+//   const newResumes = [...getResumes, newReqBody]
+//   await writeFile(`${__dirname}/resumes.json`, JSON.stringify(newResumes), { encoding: 'utf8' })
+//   res.json({ newResumes })
+// })
+
+// server.patch('/api/v1/resumes/:id', async (req, res) => {
+//   const getResumes = await readFile(`${__dirname}/resumes.json`, {
+//     encoding: 'utf8'
+//   }).then((data) => JSON.parse(data))
+//   const { id } = req.params
+//   const { firstName, lastName, skills, experience } = req.body
+//   const newResumes = getResumes.map((it) =>
+//     it.id === +id ? { id: +id, firstName, lastName, skills, experience } : it
+//   )
+//   await writeFile(`${__dirname}/resumes.json`, JSON.stringify(newResumes), { encoding: 'utf8' })
+//   res.json({ newResumes })
+// })
 
 server.use('/api/', (req, res) => {
   res.status(404)
