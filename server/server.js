@@ -6,6 +6,7 @@ import sockjs from 'sockjs'
 import { renderToStaticNodeStream } from 'react-dom/server'
 import React from 'react'
 import cookieParser from 'cookie-parser'
+import mailgun from 'mailgun-js'
 
 import config from './config'
 import Html from '../client/html'
@@ -14,13 +15,6 @@ import mongooseService from './services/mongoose'
 
 mongooseService.connect()
 
-// const User = new Item({
-//   title: "String1",
-//   category: "String1",
-//   description: "String1",
-//   price: "String1"
-// })
-// User.save()
 
 const Root = () => ''
 
@@ -31,11 +25,25 @@ try {
 }
 
 let connections = []
-
+const apiKey = '528a919a0de93c159eb23ceab3cbf3df-0f472795-4c3f7bb3'
+const domain = 'sandboxed1f40f0c0c9414eb70c1ff1d5e219b4.mailgun.org'
+const mg = mailgun({ apiKey, domain })
 const port = process.env.PORT || 8090
 const server = express()
 
 // const { readFile, writeFile } = require('fs').promises
+
+const sendEmail = (to, from, subject, content) => {
+  const data = {
+    from,
+    to,
+
+    subject,
+    text: content
+  }
+  return mg.messages().send(data)
+}
+
 
 const middleware = [
   cors(),
@@ -57,6 +65,31 @@ server.post('/api/v1/users', async (req, res) => {
   const newUser = await User.create({ firstName, lastName, email, age, skills, education, experience })
   res.json(newUser)
 })
+
+server.post('/api/v1/users', async (req, res) => {
+  const { firstName, lastName, email, age, skills, education, experience } = req.body
+  const newUser = await User.create({
+    firstName,
+    lastName,
+    email,
+    age,
+    skills,
+    education,
+    experience
+  })
+  res.json(newUser)
+})
+
+server.post('/api/v1/post', async (req, res) => {
+  try {
+    await sendEmail(req.body.from, req.body.to, req.body.subject, req.body.text)
+    res.send('email sent')
+  } catch (e) {
+    console.log(e)
+    res.status(500)
+  }
+})
+
 
 server.delete('/api/v1/users/:id', async (req, res) => {
   const { id } = req.params
