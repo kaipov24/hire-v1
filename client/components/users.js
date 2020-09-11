@@ -19,7 +19,7 @@ const Users = () => {
               <div key={it} className="md:flex bg-white rounded-lg p-6 mb-4">
                 <img
                   className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
-                  src="https://img1.goodfon.ru/original/4680x3120/7/c8/game-of-thrones-igra-7456.jpg"
+                  src="https://sun9-49.userapi.com/c841523/v841523858/471c8/vbkBilhzsAU.jpg"
                   alt=""
                 />
                 <div className="flex flex-col w-full">

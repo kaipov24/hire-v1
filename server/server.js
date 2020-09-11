@@ -13,6 +13,7 @@ import Html from '../client/html'
 import User from './model/User.model'
 import mongooseService from './services/mongoose'
 
+
 mongooseService.connect()
 
 
@@ -25,8 +26,8 @@ try {
 }
 
 let connections = []
-const apiKey = '528a919a0de93c159eb23ceab3cbf3df-0f472795-4c3f7bb3'
-const domain = 'sandboxed1f40f0c0c9414eb70c1ff1d5e219b4.mailgun.org'
+const apiKey = config.apiKey
+const domain = config.domain
 const mg = mailgun({ apiKey, domain })
 const port = process.env.PORT || 8090
 const server = express()
