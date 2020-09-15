@@ -55,19 +55,20 @@ const sendEmail = (
   const data = {
     from,
     to,
-    firstName,
-    lastName,
-    skills,
-    education,
-    spec,
-    phone,
-    email,
-    job,
-    position,
-    since,
-    till,
-    highlights,
-    text: content
+    text: [ `
+      Имя: ${firstName},
+      Фамилия: ${lastName},
+      Ключевые навыки: ${skills},
+      Образование: ${education},
+      Специальность: ${spec},
+      Номер Телефона: ${phone},
+      Почта: ${email},
+      Место работы: ${job},
+      Позиция: ${position},
+      С ${since} по ${till},
+      Достижения: ${highlights},
+      О себе: ${content}`
+    ]
   }
   return mg.messages().send(data)
 }

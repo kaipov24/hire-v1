@@ -19,7 +19,7 @@ const Contact = () => {
   const [since, setSince] = useState('')
   const [till, setTill] = useState('')
   const [highlights, setHighlights] = useState('')
-  const [text, setText] = useState('')
+  const [content, setContent] = useState('')
 
   return (
     <div className="flex justify-center p-10">
@@ -155,7 +155,7 @@ const Contact = () => {
             Опыт работы(если есть)
           </div>
           <div className="flex justify-around">
-            <div className="flex flex-wrap w-1/2 -mx-3 mb-6">
+            <div className="flex flex-wrap w-1/2 -mx-3 ">
               <div className="w-full md:w-full px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -172,7 +172,7 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap w-1/2 -mx-3 mb-6">
+            <div className="flex flex-wrap w-1/2 -mx-3">
               <div className="w-full md:w-full px-3 mb-2">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -244,19 +244,20 @@ const Contact = () => {
               className="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="text"
             >
-              О СЕБЕ(кем вы хотите работать, что вы делаете лучше всего, дополнения по
-              образованию/опыту работы, ваше хобби)
+              О СЕБЕ(кем вы хотите работать, удаленно или офис, дополнения по
+              образованию/опыту работы, что вы делаете лучше всего)
             </label>
 
-            <input
+            <textarea
               type="text"
-              className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-7 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-              placeholder="message"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="text"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
             />
+            <p className="text-sm italic">Напишите все то, что будет полезно знать вашему работадателю</p>
           </div>
+
         </div>
 
         <div className="md:flex md:items-center">
@@ -281,7 +282,7 @@ const Contact = () => {
                     since,
                     till,
                     highlights,
-                    text
+                    content
                   )
                 )
               }}
