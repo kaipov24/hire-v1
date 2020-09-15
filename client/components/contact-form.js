@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { sendEmail } from '../redux/reducers/resumes'
 
@@ -287,7 +288,7 @@ const Contact = () => {
                 )
               }}
             >
-              Send
+              <Link to="/">Send</Link>
             </button>
           </div>
           <div className="md:w-2/3"> </div>
