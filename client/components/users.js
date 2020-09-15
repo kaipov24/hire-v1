@@ -12,8 +12,8 @@ const Users = () => {
 
   return (
     <div>
-      <div className="flex justify-center">
-        <div className="md:w-4/5 ">
+      <div className="flex justify-center pt-24">
+        <div className="md:w-4/5">
           {users.map((it) => {
             return (
               <div key={it} className="md:flex bg-white rounded-lg p-6 mb-4">

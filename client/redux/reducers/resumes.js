@@ -7,7 +7,7 @@ const SEND_EMAIL = 'SEND_EMAIL'
 const initialState = {
   users: [],
   newUser: {},
-  message:{}
+  message: {}
 }
 
 export default (state = initialState, action) => {
@@ -37,7 +37,16 @@ export default (state = initialState, action) => {
         message: {
           from: action.from,
           to: action.to,
-          subject: action.subject,
+          skills: action.skills,
+          education: action.education,
+          spec: action.spec,
+          phone: action.phone,
+          email: action.email,
+          job: action.job,
+          position: action.position,
+          since: action.since,
+          till: action.till,
+          highlights: action.highlights,
           text: action.text
         }
       }
@@ -55,7 +64,7 @@ export function getUsers() {
   }
 }
 
-export function addNewUser(firstName, lastName, email, age, skills, education, experience ) {
+export function addNewUser(firstName, lastName, email, age, skills, education, experience) {
   return (dispatch) => {
     axios({
       method: 'post',
@@ -76,21 +85,58 @@ export function addNewUser(firstName, lastName, email, age, skills, education, e
 }
 
 export function sendEmail(
-    from,
-    to,
-    subject,
-    text) {
+  from,
+  to,
+  firstName,
+  lastName,
+  skills,
+  education,
+  spec,
+  phone,
+  email,
+  job,
+  position,
+  since,
+  till,
+  highlights,
+  text
+) {
   return (dispatch) => {
     axios({
       method: 'post',
-      url: `/api/v1/post`,
-      data: { from, to, subject, text }
+      url: `/api/v1/add`,
+      data: {
+        from,
+        to,
+        firstName,
+        lastName,
+        skills,
+        education,
+        spec,
+        phone,
+        email,
+        job,
+        position,
+        since,
+        till,
+        highlights,
+        text
+      }
     }).then((data) => {
       dispatch({
         type: SEND_EMAIL,
         from: data.from,
         to: data.to,
-        subject: data.subject,
+        skills: data.skills,
+        education: data.education,
+        spec: data.spec,
+        phone: data.phone,
+        email: data.email,
+        job: data.job,
+        position: data.position,
+        since: data.since,
+        till: data.till,
+        highlights: data.highlights,
         text: data.text
       })
     })

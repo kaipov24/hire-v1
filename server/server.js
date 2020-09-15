@@ -34,12 +34,39 @@ const server = express()
 
 // const { readFile, writeFile } = require('fs').promises
 
-const sendEmail = (to, from, subject, content) => {
+
+const sendEmail = (
+  from,
+  to,
+  firstName,
+  lastName,
+  skills,
+  education,
+  spec,
+  phone,
+  email,
+  job,
+  position,
+  since,
+  till,
+  highlights,
+  content
+) => {
   const data = {
     from,
     to,
-
-    subject,
+    firstName,
+    lastName,
+    skills,
+    education,
+    spec,
+    phone,
+    email,
+    job,
+    position,
+    since,
+    till,
+    highlights,
     text: content
   }
   return mg.messages().send(data)
@@ -81,9 +108,25 @@ server.post('/api/v1/users', async (req, res) => {
   res.json(newUser)
 })
 
-server.post('/api/v1/post', async (req, res) => {
+server.post('/api/v1/add', async (req, res) => {
   try {
-    await sendEmail(req.body.from, req.body.to, req.body.subject, req.body.text)
+    await sendEmail(
+      req.body.from,
+      req.body.to,
+      req.body.firstName,
+      req.body.lastName,
+      req.body.skills,
+      req.body.education,
+      req.body.spec,
+      req.body.phone,
+      req.body.email,
+      req.body.job,
+      req.body.position,
+      req.body.since,
+      req.body.till,
+      req.body.highlights,
+      req.body.text
+    )
     res.send('email sent')
   } catch (e) {
     console.log(e)

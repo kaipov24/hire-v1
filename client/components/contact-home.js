@@ -2,11 +2,10 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Header from './header'
 import Contact from './contact-form'
-import Users from './users'
-
 import { getUsers } from '../redux/reducers/resumes'
 
-const Home = () => {
+
+const ContactHome = () => {
   const dispatch = useDispatch()
   const users = useSelector((store) => store.resumes.users)
 
@@ -15,18 +14,13 @@ const Home = () => {
   }, [users])
   return (
     <div className="bg-indigo-200 h-screen">
-      <div className="fixed z-10">
-        <Header />
-      </div>
-      <div className="relative">
-        <Users />
-      </div>
+      <Header />
 
       <Contact />
     </div>
   )
 }
 
-Home.propTypes = {}
+ContactHome.propTypes = {}
 
-export default Home
+export default ContactHome

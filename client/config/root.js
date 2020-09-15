@@ -13,6 +13,7 @@ import NotFound from '../components/404'
 
 
 import Startup from './startup'
+import ContactHome from '../components/contact-home'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -74,7 +75,7 @@ const RootComponent = (props) => {
         <Startup>
           <Switch>
             <Route exact path="/" component={() => <Home />} />
-            <Route exact path="/dashboard" component={() => <Home />} />
+            <Route exact path="/contact" component={() => <ContactHome />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>

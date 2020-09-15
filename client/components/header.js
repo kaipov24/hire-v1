@@ -1,101 +1,55 @@
 import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import InputBase from '@material-ui/core/InputBase'
-import { fade, makeStyles } from '@material-ui/core/styles'
-import MenuOpenIcon from '@material-ui/icons/MenuOpen'
-import SearchIcon from '@material-ui/icons/Search'
+import { Link } from 'react-router-dom'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block'
-    }
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto'
-    }
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  inputRoot: {
-    color: 'inherit'
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch'
-      }
-    }
-  }
-}))
-
-export default function SearchAppBar() {
-  const classes = useStyles()
-
+const Header = () => {
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuOpenIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <nav className="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0 ">
+      <div className="container mx-auto flex flex-wrap items-center">
+        <div className="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+          <a className="text-white no-underline hover:text-white hover:no-underline" href="#">
+            <span className="text-2xl pl-2">
+              <i className="em em-grinning">Kobe Bryant</i>
+            </span>
+          </a>
+        </div>
+        <div className="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+          <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
+            <li className="mr-3">
+              <a className="inline-block py-2 px-4 text-white no-underline" href="#">
+                Active
+              </a>
+            </li>
+            <li className="mr-3">
+              <button
+                type="button"
+                className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+              >
+                <Link to="/contact">Linkishe</Link>
+              </button>
+            </li>
+            <li className="mr-3">
+              <a
+                className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+              >
+                link
+              </a>
+            </li>
+            <li className="mr-3">
+              <a
+                className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+              >
+                link
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   )
 }
+
+Header.propTypes = {}
+
+export default React.memo(Header)
