@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Header from './header'
-import Contact from './contact-form'
 import Users from './users'
-
+import Footer from './footer'
 import { getUsers } from '../redux/reducers/resumes'
 
 const Home = () => {
@@ -14,15 +13,14 @@ const Home = () => {
     dispatch(getUsers())
   }, [users])
   return (
-    <div className="bg-indigo-200 h-screen">
-      <div className="fixed z-10">
+    <div className="bg-indigo-200 min-h-screen">
+      <div className="flex-grow">
         <Header />
-      </div>
-      <div className="relative">
         <Users />
       </div>
-
-      <Contact />
+      <div className="flex flex-col flex-end w-full text-center border-t border-grey p-4 pin-b ">
+        <Footer />
+      </div>
     </div>
   )
 }

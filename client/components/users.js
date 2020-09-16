@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { sendEmail } from '../redux/reducers/resumes'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Users = () => {
-  const dispatch = useDispatch()
+
   const users = useSelector((store) => store.resumes.users)
-  const [from] = useState('kaipovich24@gmail.com')
-  const [to] = useState('kaipov.kayrat@gmail.com')
-  const [subject, setSubject] = useState('')
-  const [text, setText] = useState('')
 
   return (
     <div>
@@ -50,30 +45,6 @@ const Users = () => {
             )
           })}
         </div>
-      </div>
-      <div>
-        <input type="text" placeholder="to" />
-        <input type="text" placeholder="from" />
-        <input
-          type="text"
-          placeholder="subject"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="message"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={() => {
-            dispatch(sendEmail(from, to, subject, text))
-          }}
-        >
-          Send
-        </button>
       </div>
     </div>
   )
