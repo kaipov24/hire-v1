@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import Header from './header'
 import Users from './users'
 import Footer from './footer'
+import Hero from './hero'
+
 import { getUsers } from '../redux/reducers/resumes'
 
 const Home = () => {
@@ -16,9 +18,10 @@ const Home = () => {
     <div className="bg-indigo-200 min-h-screen">
       <div className="flex-grow">
         <Header />
+        <Hero />
         <Users />
       </div>
-      <div className="flex flex-col flex-end w-full text-center border-t border-grey p-4 pin-b ">
+      <div className="flex flex-col flex-end w-full text-center border-t border-grey pin-b ">
         <Footer />
       </div>
     </div>

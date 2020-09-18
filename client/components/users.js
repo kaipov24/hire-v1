@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const Users = () => {
-
+  const [toggled, setToggled] = useState(false)
   const users = useSelector((store) => store.resumes.users)
 
   return (
     <div>
-      <div className="flex justify-center pt-24">
+      <button
+        type="button"
+        className="flex justify-center pt-8"
+        onClick={() => {
+          setToggled(!toggled)
+        }}
+      >
+
         <div className="md:w-4/5">
           {users.map((it) => {
             return (
-              <div key={it} className="md:flex bg-white rounded-lg p-6 mb-4">
+              <div
+                key={it}
+                className={`${
+                  toggled
+                    ? 'md:flex bg-black rounded-lg p-6 mb-4 shadow-lg'
+                    : 'md:flex bg-white rounded-lg p-6 mb-4 shadow-lg'
+                }`}
+              >
                 <img
                   className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
                   src="https://sun9-49.userapi.com/c841523/v841523858/471c8/vbkBilhzsAU.jpg"
@@ -25,7 +39,7 @@ const Users = () => {
                     <div className="text-purple-500 w-1/3">
                       {it.skills.map((item) => {
                         return (
-                          <div key={item} className="flex flex-row">
+                          <div key={item.id} className="flex flex-row">
                             {item}
                           </div>
                         )
@@ -45,7 +59,7 @@ const Users = () => {
             )
           })}
         </div>
-      </div>
+      </button>
     </div>
   )
 }
