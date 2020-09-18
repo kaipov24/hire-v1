@@ -1,14 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-const Users = () => {
-  const users = useSelector((store) => store.resumes.users)
+const User = () => {
+  const { id } = useParams()
+  const users = useSelector((store) =>
+    store.resumes.users.filter((it) => it._id === id)
+  )
 
   return (
     <div>
       <div className="flex justify-center pt-8">
-
         <div className="md:w-4/5">
           {users.map((it) => {
             return (
@@ -42,7 +44,7 @@ const Users = () => {
                       <div className="text-gray-600">{it.phone}</div>
                     </div>
                     <button type="button">
-                      <Link to={`/${it._id}`}>Подробнее</Link>
+                      <Link to={`/${it.email}`}>Подробнее</Link>
                     </button>
                   </div>
                 </div>
@@ -55,6 +57,6 @@ const Users = () => {
   )
 }
 
-Users.propTypes = {}
+User.propTypes = {}
 
-export default React.memo(Users)
+export default React.memo(User)

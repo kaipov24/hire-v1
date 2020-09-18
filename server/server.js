@@ -89,6 +89,12 @@ server.get('/api/v1/users', async (req, res) => {
   res.json(users)
 })
 
+server.get('/api/v1/users/:id', async (req, res) => {
+  const { id } = req.params
+  const newUser = await User.find({ _id: id })
+  res.json(newUser)
+})
+
 server.post('/api/v1/users', async (req, res) => {
   const { firstName, lastName, email, age, skills, education, experience } = req.body
   const newUser = await User.create({ firstName, lastName, email, age, skills, education, experience })
