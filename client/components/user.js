@@ -14,7 +14,10 @@ const User = () => {
         <div className="md:w-4/5">
           {users.map((it) => {
             return (
-              <div key={it} className="md:flex bg-white text-2xl rounded-lg  mb-4 shadow-lg">
+              <div
+                key={it}
+                className="md:flex bg-white text-2xl rounded-lg  mb-4 shadow-lg capitalize"
+              >
                 <div className="flex flex-col w-full">
                   <img
                     className=" rounded-lg h-auto"
@@ -35,13 +38,25 @@ const User = () => {
                         )
                       })}
                     </div>
-
                     <div className="w-full mb-4">
                       <div className="text-gray-800 flex">
-                        <div className="text-gray-900 w-1/3">Образование/курсы: </div>
-                        <div className="text-gray-900 w-2/3">{it.education} </div>
+                        <div className="text-gray-900 w-1/3">Удаленно/офис </div>
+                        <div className="text-gray-900 bold w-2/3 ">{it.condition}</div>
                       </div>
                     </div>
+                    <div className="w-full mb-4">
+                      <div className="text-gray-800 flex">
+                        <div className="text-gray-900 w-1/3">Возраст </div>
+                        <div className="text-gray-900 bold w-2/3 ">{it.age}</div>
+                      </div>
+                    </div>
+                    <div className="w-full mb-4">
+                      <div className="text-gray-800 flex">
+                        <div className="text-gray-900 w-1/3">Языки: </div>
+                        <div className="text-gray-900 w-2/3">{it.languages}</div>
+                      </div>
+                    </div>
+
                     <div className="w-full mb-4">
                       <div className="text-gray-800 flex">
                         <div className="text-gray-900 w-1/3">Номер телефона: </div>
@@ -54,7 +69,14 @@ const User = () => {
                         <div className="text-gray-900 w-2/3">{it.email} </div>
                       </div>
                     </div>
-
+                    <div className="w-full mb-4">
+                      <div className="text-gray-800 flex">
+                        <div className="text-gray-900 w-1/3">Образование/курсы: </div>
+                        <div className="text-gray-900 w-2/3">
+                          {it.education} {it.spec}{' '}
+                        </div>
+                      </div>
+                    </div>
                     <div className="w-full mb-4">
                       <div className="text-gray-800 flex">
                         <div className="text-gray-900 w-1/3">Опыт работы: </div>

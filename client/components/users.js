@@ -38,7 +38,7 @@ const Users = () => {
                     </div>
                     <button
                       type="button"
-                      className="mx-auto lg:mx-0 hover:bg-indigo-800 hover:text-white transition duration-500 ease-in-out bg-white text-indigo-800 font-bold rounded-full py-4 px-4 shadow-lg transform hover:-translate-y-1 hover:scale-110"
+                      className="mx-auto lg:mx-0 hover:bg-indigo-800 outline-none hover:text-white transition duration-500 ease-in-out bg-white text-indigo-800 font-bold rounded-full py-4 px-4 shadow-lg transform hover:-translate-y-1 hover:scale-110"
                     >
                       <Link to={`/${it._id}`}>Подробнее</Link>
                     </button>
