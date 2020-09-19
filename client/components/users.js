@@ -9,17 +9,12 @@ const Users = () => {
     <div>
       <div className="flex justify-center pt-8">
 
-        <div className="md:w-4/5">
+        <div className="md:w-3/4">
           {users.map((it) => {
             return (
-              <div key={it} className="md:flex bg-white rounded-lg p-6 mb-4 shadow-lg">
-                <img
-                  className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
-                  src="https://sun9-49.userapi.com/c841523/v841523858/471c8/vbkBilhzsAU.jpg"
-                  alt=""
-                />
-                <div className="flex flex-col w-full">
-                  <h2 className="text-lg">
+              <div key={it} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
+                <div className="flex flex-col w-full ">
+                  <h2 className="text-xl">
                     {it.firstName} {it.lastName}{' '}
                   </h2>
                   <div className="flex justify-between">
@@ -41,7 +36,10 @@ const Users = () => {
                       <div className="text-gray-600">{it.email}</div>
                       <div className="text-gray-600">{it.phone}</div>
                     </div>
-                    <button type="button">
+                    <button
+                      type="button"
+                      className="mx-auto lg:mx-0 hover:bg-indigo-800 hover:text-white transition duration-500 ease-in-out bg-white text-indigo-800 font-bold rounded-full py-4 px-4 shadow-lg transform hover:-translate-y-1 hover:scale-110"
+                    >
                       <Link to={`/${it._id}`}>Подробнее</Link>
                     </button>
                   </div>

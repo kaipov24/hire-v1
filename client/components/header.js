@@ -8,7 +8,7 @@ const Header = () => {
         <div className="pl-4 flex items-center">
           <button
             type="button"
-            className="inline-block text-white font-bold text-2xl lg:text-4xl no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+            className="inline-block text-white font-bold text-2xl lg:text-4xl no-underline hover:text-gray-200 py-2 px-4"
           >
             <Link to="/">HPD</Link>
           </button>

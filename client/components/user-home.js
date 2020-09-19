@@ -14,7 +14,7 @@ const UserHome = () => {
   }, [users])
   return (
     <div className="bg-indigo-200 min-h-screen">
-      <div className="flex-1">
+      <div className="flex-grow">
         <Header />
         <User />
       </div>
