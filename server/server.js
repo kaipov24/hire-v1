@@ -13,9 +13,7 @@ import Html from '../client/html'
 import User from './model/User.model'
 import mongooseService from './services/mongoose'
 
-
 mongooseService.connect()
-
 
 const Root = () => ''
 
@@ -34,7 +32,6 @@ const server = express()
 
 // const { readFile, writeFile } = require('fs').promises
 
-
 const sendEmail = (
   from,
   to,
@@ -45,7 +42,10 @@ const sendEmail = (
   spec,
   phone,
   email,
-  job,
+  languages,
+  condition,
+  age,
+  experience,
   position,
   since,
   till,
@@ -55,7 +55,8 @@ const sendEmail = (
   const data = {
     from,
     to,
-    text: [ `
+    text: [
+      `
       Имя: ${firstName},
       Фамилия: ${lastName},
       Ключевые навыки: ${skills},
@@ -63,7 +64,10 @@ const sendEmail = (
       Специальность: ${spec},
       Номер Телефона: ${phone},
       Почта: ${email},
-      Место работы: ${job},
+      Языки: ${languages},
+      Услвоия: ${condition},
+      Возраст: ${age},
+      Место работы: ${experience},
       Позиция: ${position},
       С ${since} по ${till},
       Достижения: ${highlights},
@@ -72,7 +76,6 @@ const sendEmail = (
   }
   return mg.messages().send(data)
 }
-
 
 const middleware = [
   cors(),
@@ -96,21 +99,85 @@ server.get('/api/v1/users/:id', async (req, res) => {
 })
 
 server.post('/api/v1/users', async (req, res) => {
-  const { firstName, lastName, email, age, skills, education, experience } = req.body
-  const newUser = await User.create({ firstName, lastName, email, age, skills, education, experience })
+  const {
+    firstName,
+    lastName,
+    skills,
+    education,
+    spec,
+    phone,
+    email,
+    languages,
+    condition,
+    age,
+    experience,
+    position,
+    since,
+    till,
+    highlights,
+    text
+  } = req.body
+  const newUser = await User.create({
+    firstName,
+    lastName,
+    skills,
+    education,
+    spec,
+    phone,
+    email,
+    languages,
+    condition,
+    age,
+    experience,
+    position,
+    since,
+    till,
+    highlights,
+    text
+  })
   res.json(newUser)
 })
 
 server.post('/api/v1/users', async (req, res) => {
-  const { firstName, lastName, email, age, skills, education, experience } = req.body
-  const newUser = await User.create({
+  const {
+    from,
+    to,
     firstName,
     lastName,
-    email,
-    age,
     skills,
     education,
-    experience
+    spec,
+    phone,
+    email,
+    languages,
+    condition,
+    age,
+    experience,
+    position,
+    since,
+    till,
+    highlights,
+    text
+  } = req.body
+  const newUser = await User.create({
+    from,
+    to,
+    firstName,
+    lastName,
+    skills,
+    education,
+    spec,
+    phone,
+    email,
+    languages,
+    condition,
+    age,
+    experience,
+    position,
+    since,
+    till,
+    highlights,
+    text
   })
   res.json(newUser)
 })
@@ -127,7 +194,10 @@ server.post('/api/v1/add', async (req, res) => {
       req.body.spec,
       req.body.phone,
       req.body.email,
-      req.body.job,
+      req.body.languages,
+      req.body.condition,
+      req.body.age,
+      req.body.experience,
       req.body.position,
       req.body.since,
       req.body.till,
@@ -140,7 +210,6 @@ server.post('/api/v1/add', async (req, res) => {
     res.status(500)
   }
 })
-
 
 server.delete('/api/v1/users/:id', async (req, res) => {
   const { id } = req.params

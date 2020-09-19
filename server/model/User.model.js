@@ -9,15 +9,6 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  age: {
-    type: String,
-    required: true
-  },
   skills: {
     type: [String],
     required: true
@@ -25,10 +16,43 @@ const usersSchema = new mongoose.Schema({
   education: {
     type: String
   },
+  spec: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  languages: {
+    type: String
+  },
+  condition: {
+    type: String
+  },
+  age: {
+    type: String,
+    required: true
+  },
   experience: {
     type: String
   },
-  about: {
+  position: {
+    type: String
+  },
+  since: {
+    type: String
+  },
+  till: {
+    type: String
+  },
+  highlights: {
+    type: String
+  },
+  text: {
     type: String
   }
 })

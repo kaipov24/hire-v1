@@ -11,11 +11,14 @@ const Contact = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [skills, setSkills] = useState('')
+  const [languages, setLanguages] = useState('')
+  const [condition, setCondition] = useState('')
+  const [age, setAge] = useState('')
   const [education, setEducation] = useState('')
   const [spec, setSpec] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  const [job, setJob] = useState('')
+  const [experience, setExperience] = useState('')
   const [position, setPosition] = useState('')
   const [since, setSince] = useState('')
   const [till, setTill] = useState('')
@@ -119,7 +122,7 @@ const Contact = () => {
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="email"
+                htmlFor="phone"
               >
                 Номер телефона (Whatsapp)
               </label>
@@ -150,6 +153,61 @@ const Contact = () => {
             </div>
           </div>
         </div>
+        <div className="flex justify-around">
+          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="languages"
+              >
+                Языки
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="languages"
+                type="text"
+                value={languages}
+                onChange={(e) => setLanguages(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap w-1/4  -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="languages"
+              >
+                Удаленно/офис
+              </label>
+              <select
+                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+                onSelect={(e) => setCondition(e.target.value)}
+              >
+                <option>Удаленно</option>
+                <option>Офис</option>
+                <option>Удаленно или офис</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-wrap w-1/4  -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="age"
+              >
+                Возраст
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="age"
+                type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
 
         <div>
           <div className="flex justify-center uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -168,8 +226,8 @@ const Contact = () => {
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="place"
                   type="text"
-                  value={job}
-                  onChange={(e) => setJob(e.target.value)}
+                  value={experience}
+                  onChange={(e) => setExperience(e.target.value)}
                 />
               </div>
             </div>
@@ -194,10 +252,10 @@ const Contact = () => {
           <div className="flex justify-around">
             <div className="w-full md:w-1/2 px-3">
               <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="time"
               >
-                С
+                С(месяц/день/год)
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -245,8 +303,8 @@ const Contact = () => {
               className="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="text"
             >
-              О СЕБЕ(кем вы хотите работать, удаленно или офис, дополнения по
-              образованию/опыту работы, что вы делаете лучше всего)
+              О СЕБЕ(кем вы хотите работать, удаленно или офис, дополнения по образованию/опыту
+              работы, что вы делаете лучше всего)
             </label>
 
             <textarea
@@ -256,9 +314,10 @@ const Contact = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-            <p className="text-sm italic">Напишите все то, что будет полезно знать вашему работадателю</p>
+            <p className="text-sm italic">
+              Напишите все то, что будет полезно знать вашему работадателю
+            </p>
           </div>
-
         </div>
 
         <div className="md:flex md:items-center">
@@ -278,7 +337,10 @@ const Contact = () => {
                     spec,
                     phone,
                     email,
-                    job,
+                    languages,
+                    condition,
+                    age,
+                    experience,
                     position,
                     since,
                     till,

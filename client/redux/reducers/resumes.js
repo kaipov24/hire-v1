@@ -1,12 +1,11 @@
 import axios from 'axios'
 
 const GET_USERS = 'GET_USERS'
-const ADD_NEW_USER = 'ADD_NEW_USER'
+
 const SEND_EMAIL = 'SEND_EMAIL'
 
 const initialState = {
   users: [],
-  newUser: {},
   message: {}
 }
 
@@ -18,19 +17,6 @@ export default (state = initialState, action) => {
         users: action.users
       }
 
-    case ADD_NEW_USER:
-      return {
-        ...state,
-        newUser: {
-          firstName: action.firstName,
-          lastName: action.lastName,
-          skills: action.skills,
-          email: action.email,
-          age: action.age,
-          education: action.education,
-          experience: action.experience
-        }
-      }
     case SEND_EMAIL:
       return {
         ...state,
@@ -42,6 +28,9 @@ export default (state = initialState, action) => {
           spec: action.spec,
           phone: action.phone,
           email: action.email,
+          languages: action.languages,
+          condtion: action.condtion,
+          age: action.age,
           job: action.job,
           position: action.position,
           since: action.since,
@@ -65,26 +54,6 @@ export function getUsers() {
 }
 
 
-export function addNewUser(firstName, lastName, email, age, skills, education, experience) {
-  return (dispatch) => {
-    axios({
-      method: 'post',
-      url: `/api/v1/users`,
-      data: { firstName, lastName, email, age, skills, education, experience }
-    }).then((data) => {
-      dispatch({
-        type: ADD_NEW_USER,
-        lastName: data.lastName,
-        skills: data.skills,
-        email: data.email,
-        age: data.age,
-        education: data.education,
-        experience: data.experience
-      })
-    })
-  }
-}
-
 export function sendEmail(
   from,
   to,
@@ -95,6 +64,9 @@ export function sendEmail(
   spec,
   phone,
   email,
+  languages,
+  condition,
+  age,
   job,
   position,
   since,
@@ -116,6 +88,9 @@ export function sendEmail(
         spec,
         phone,
         email,
+        languages,
+        condition,
+        age,
         job,
         position,
         since,
@@ -133,6 +108,9 @@ export function sendEmail(
         spec: data.spec,
         phone: data.phone,
         email: data.email,
+        languages: data.languages,
+        condition: data.condition,
+        age: data.age,
         job: data.job,
         position: data.position,
         since: data.since,

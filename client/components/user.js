@@ -59,7 +59,7 @@ const User = () => {
                       <div className="text-gray-800 flex">
                         <div className="text-gray-900 w-1/3">Опыт работы: </div>
                         <div className="text-gray-900 w-2/3">
-                          {it.position} в {it.experience} с {it.since} по {it.for}
+                          {it.position} в {it.experience} с {it.since} по {it.till}
                         </div>
                       </div>
                     </div>
@@ -72,7 +72,7 @@ const User = () => {
                     <div className="w-full mb-4">
                       <div className="text-gray-800 flex">
                         <div className="text-gray-900 w-1/3">О себе </div>
-                        <div className="text-gray-900 w-2/3">{it.about} </div>
+                        <div className="text-gray-900 w-2/3">{it.text} </div>
                       </div>
                     </div>
                   </div>
