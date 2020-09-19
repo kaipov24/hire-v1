@@ -6,6 +6,7 @@ const ContactHome = () => {
 
   return (
     <div className="bg-indigo-200 h-100%">
+
       <Header />
 
       <Contact />
