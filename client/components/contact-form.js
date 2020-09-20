@@ -27,9 +27,9 @@ const Contact = () => {
 
   return (
     <div className="flex justify-center p-10">
-      <form className="w-3/4 bg-white rounded-lg p-6 mt-24 mb-4">
-        <div className="flex justify-around">
-          <div className="flex flex-wrap w-1/2 -mx-3 mb-6">
+      <form className="md:w-3/4 w-full bg-white rounded-lg p-6 mt-24 mb-4">
+        <div className="flex flex-wrap justify-around">
+          <div className="flex flex-wrap md:w-1/2 w-full -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -63,7 +63,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
+          <div className="flex flex-wrap w-full md:w-1/2  -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -81,9 +81,9 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-around">
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
-            <div className="w-full md:w-full px-3 mb-6 md:mb-0">
+        <div className="flex justify-around flex-wrap ">
+          <div className="flex w-full md:w-1/2  -mx-3 mb-6">
+            <div className="w-full px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="education"
@@ -99,8 +99,8 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
-            <div className="w-full md:w-full px-3 mb-6 md:mb-0">
+          <div className="flex flex-wrap w-full md:w-1/2 -mx-3 mb-6">
+            <div className="w-full  px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="spec"
@@ -117,8 +117,8 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-around">
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
+        <div className="flex justify-around flex-wrap">
+          <div className="flex  w-full md:w-1/2 -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -135,7 +135,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
+          <div className="flex w-full md:w-1/2 -mx-3 mb-6">
             <div className="w-full md:w-full px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -153,8 +153,8 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-around">
-          <div className="flex flex-wrap w-1/2  -mx-3 mb-6">
+        <div className="flex justify-around flex-wrap">
+          <div className="flex w-full md:w-1/2  -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -171,7 +171,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-1/4  -mx-3 mb-6">
+          <div className="flex w-full md:w-1/4 sm:w-1/2 -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -190,7 +190,7 @@ const Contact = () => {
               </select>
             </div>
           </div>
-          <div className="flex flex-wrap w-1/4  -mx-3 mb-6">
+          <div className="flex w-full md:w-1/4 sm:w-1/2  -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -213,9 +213,9 @@ const Contact = () => {
           <div className="flex justify-center uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             Опыт работы(если есть)
           </div>
-          <div className="flex justify-around">
-            <div className="flex flex-wrap w-1/2 -mx-3 ">
-              <div className="w-full md:w-full px-3 mb-6 md:mb-0">
+          <div className="flex justify-around flex-wrap">
+            <div className="flex w-full md:w-1/2 -mx-3 ">
+              <div className="w-full px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   htmlFor="place"
@@ -231,8 +231,8 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap w-1/2 -mx-3">
-              <div className="w-full md:w-full px-3 mb-2">
+            <div className="flex w-full md:w-1/2 -mx-3">
+              <div className="w-full  px-3 mb-2">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   htmlFor="position"
@@ -249,8 +249,8 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-around">
-            <div className="w-full md:w-1/2 px-3">
+          <div className="flex justify-around flex-wrap">
+            <div className="w-full md:w-1/4 sm:w-1/2 px-3">
               <label
                 className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="time"
@@ -265,7 +265,7 @@ const Contact = () => {
                 onChange={(e) => setSince(e.target.value)}
               />
             </div>
-            <div className="w-full md:w-1/2 px-3 mb-4">
+            <div className="w-full md:w-1/4 sm:w-1/2 px-3 mb-4">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="time"

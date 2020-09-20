@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className="py-4 bg-indigo-800 md:flex md:items-center md:justify-center border-solid border-1 border-white">
-      <ul className="flex">
+    <div className="py-4 bg-indigo-800 flex justify-center border-solid border-1 border-white">
+      <ul className="flex md:flex-row flex-col">
         <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2">
           <div className="text-white text-small">По вопросам: </div>
         </li>

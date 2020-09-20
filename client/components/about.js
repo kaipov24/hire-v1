@@ -10,7 +10,7 @@ const About = () => {
         <Header />
       </div>
       <div className="flex justify-center">
-        <div className="w-2/4 sm:w-3/4 bg-white rounded-lg p-6 mt-24 mb-4">
+        <div className="w-full sm:w-3/4 bg-white rounded-lg p-6 mt-24 mb-4">
           <img
             className="m-auto mb-4"
             src="https://res.cloudinary.com/practicaldev/image/fetch/s--xq8xxUmL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://external-preview.redd.it/x7vVnP3L75Wh4ApmXedKjze9b7ZuH5h7oW-4xbHMiHQ.jpg%3Fauto%3Dwebp%26s%3Db7d6873eed8c442bb685a083b3b4bfff6dd009ac"

@@ -14,11 +14,11 @@ const Users = () => {
             return (
               <div key={it} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
                 <div className="flex flex-col w-full ">
-                  <h2 className="text-xl">
+                  <h2 className="sm:text-xl m-auto">
                     {it.firstName} {it.lastName}{' '}
                   </h2>
-                  <div className="flex justify-between">
-                    <div className="text-purple-500 w-1/3">
+                  <div className="flex justify-between sm:flex-row flex-col">
+                    <div className="text-purple-500 sm:w-1/3 w-full">
                       {it.skills.map((item) => {
                         return (
                           <div key={item.id} className="flex flex-row">
@@ -28,11 +28,13 @@ const Users = () => {
                       })}
                     </div>
 
-                    <div className="w-1/3">
-                      <div className="text-gray-600">{it.experience}</div>
+                    <div className="sm:w-1/3 w-full">
+                      <div className="text-gray-600">
+                        {it.experience} {it.since}-{it.till}
+                      </div>
                       <div className="text-gray-600">{it.education}</div>
                     </div>
-                    <div className="w-1/3">
+                    <div className="sm:w-1/3 w-full">
                       <div className="text-gray-600">{it.email}</div>
                       <div className="text-gray-600">{it.phone}</div>
                     </div>
