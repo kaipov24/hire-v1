@@ -15,7 +15,7 @@ const Home = () => {
     dispatch(getUsers())
   }, [users])
   return (
-    <div className="bg-indigo-200 min-h-screen">
+    <div className="bg-indigo-200 min-h-screen flex flex-col justify-between">
       <div className="flex-grow">
         <Header />
         <Hero />
