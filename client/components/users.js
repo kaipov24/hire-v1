@@ -9,7 +9,7 @@ const Users = () => {
     <div>
       <div className="flex justify-center pt-8">
 
-        <div className="md:w-3/4">
+        <div className="md:w-3/4 w-4/5">
           {users.map((it) => {
             return (
               <div key={it._id} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
