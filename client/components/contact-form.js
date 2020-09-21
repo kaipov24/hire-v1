@@ -332,61 +332,59 @@ const Contact = () => {
                 setShowModal(true)
               }}
             >
-              Send
+              Отправить
             </button>
           </div>
-
         </div>
       </form>
       {showModal ? (
         <>
           <div className="p-6 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white p-4 outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-2  border-gray-300 rounded-t">
-
+                  <h3 className="text-indigo-500 ">Отправить резюме и перейти на главную?</h3>
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    className="bg-teal-400 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-full outline-none"
+                    style={{ transition: 'all 0.15s ease' }}
+                    type="submit"
+                    onClick={() => {
+                      dispatch(
+                        sendEmail(
+                          from,
+                          to,
+                          firstName,
+                          lastName,
+                          skills,
+                          education,
+                          spec,
+                          phone,
+                          email,
+                          languages,
+                          condition,
+                          age,
+                          experience,
+                          position,
+                          since,
+                          till,
+                          highlights,
+                          content
+                        )
+                      )
+                    }}
+                  >
+                    <Link to="/">Да</Link>
+                  </button>
                   <button
                     type="button"
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-xl block outline-none focus:outline-none">
-                      ×
-                    </span>
+                    Нет
                   </button>
                 </div>
-
-                <button
-                  className="flex justify-end text-blue-500 bg-transparent font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1"
-                  style={{ transition: 'all 0.15s ease' }}
-                  type="submit"
-                  onClick={() => {
-                    dispatch(
-                      sendEmail(
-                        from,
-                        to,
-                        firstName,
-                        lastName,
-                        skills,
-                        education,
-                        spec,
-                        phone,
-                        email,
-                        languages,
-                        condition,
-                        age,
-                        experience,
-                        position,
-                        since,
-                        till,
-                        highlights,
-                        content
-                      )
-                    )
-                  }}
-                >
-                  <Link to="/">Отправить резюме и перейти на главную</Link>
-                </button>
               </div>
             </div>
           </div>
