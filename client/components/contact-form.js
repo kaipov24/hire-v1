@@ -24,6 +24,9 @@ const Contact = () => {
   const [till, setTill] = useState('')
   const [highlights, setHighlights] = useState('')
   const [content, setContent] = useState('')
+  const remote = 'Удаленно'
+  const office = 'Офис'
+  const both = 'Удаленно или офис'
 
   return (
     <div className="flex justify-center p-10">
@@ -175,18 +178,18 @@ const Contact = () => {
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="languages"
+                htmlFor="condition"
               >
                 Удаленно/офис
               </label>
               <select
                 className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
-                onSelect={(e) => setCondition(e.target.value)}
+                id="condition"
+                onChange={(e) => setCondition(e.target.value)}
               >
-                <option>Удаленно</option>
-                <option>Офис</option>
-                <option>Удаленно или офис</option>
+                <option>{remote}</option>
+                <option>{office}</option>
+                <option>{both}</option>
               </select>
             </div>
           </div>
@@ -218,13 +221,13 @@ const Contact = () => {
               <div className="w-full px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="place"
+                  htmlFor="experience"
                 >
                   Последнее место работы
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                  id="place"
+                  id="experience"
                   type="text"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
@@ -249,8 +252,8 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-around flex-wrap">
-            <div className="w-full md:w-1/4 sm:w-1/2 px-3">
+          <div className="flex justify-around flex-wrap w-full">
+            <div className="w-full md:w-1/2  px-3">
               <label
                 className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="time"
@@ -265,7 +268,7 @@ const Contact = () => {
                 onChange={(e) => setSince(e.target.value)}
               />
             </div>
-            <div className="w-full md:w-1/4 sm:w-1/2 px-3 mb-4">
+            <div className="w-full md:w-1/2 px-3 mb-4">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="time"

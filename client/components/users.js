@@ -12,7 +12,7 @@ const Users = () => {
         <div className="md:w-3/4">
           {users.map((it) => {
             return (
-              <div key={it} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
+              <div key={it._id} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
                 <div className="flex flex-col w-full ">
                   <h2 className="sm:text-xl m-auto">
                     {it.firstName} {it.lastName}{' '}
