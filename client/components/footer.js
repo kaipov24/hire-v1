@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="text-white text-small">По вопросам: </div>
         </li>
         <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2">
-          <div className="text-white text-small">kaipov.kayrat@gmail.com</div>
+          <div className="text-white text-small">hirepeoplewithdisabilities@gmail.com</div>
         </li>
         <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2">
           <div className="text-white text-small">
