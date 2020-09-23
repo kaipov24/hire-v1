@@ -76,7 +76,7 @@ const User = () => {
                     <div className="w-full mb-4">
                       <div className="text-gray-800 w-full flex flex-wrap">
                         <div className="text-gray-900 sm:w-1/3 w-full">Образование/курсы: </div>
-                        <div className="text-gray-900 sm:w-2/3 w-full capitalize">
+                        <div className="text-gray-900 sm:w-2/3 w-full ">
                           {it.education} {it.spec}{' '}
                         </div>
                       </div>
@@ -85,7 +85,7 @@ const User = () => {
                       <div className="text-gray-800 w-full flex flex-wrap">
                         <div className="text-gray-900 sm:w-1/3 w-full">Опыт работы: </div>
                         <div className="text-gray-900 sm:w-2/3 w-full">
-                          {it.position} в {it.experience} с {it.since} по {it.till}
+                          {it.position} {it.experience} {it.since} {it.till}
                         </div>
                       </div>
                     </div>
@@ -102,7 +102,7 @@ const User = () => {
                     <div className="w-full mb-4">
                       <div className="text-gray-800 w-full flex flex-wrap">
                         <div className="text-gray-900 sm:w-1/3 w-full">О себе: </div>
-                        <div className="text-gray-900 sm:w-2/3 w-full capitalize">{it.text} </div>
+                        <div className="text-gray-900 sm:w-2/3 w-full ">{it.text} </div>
                       </div>
                     </div>
                   </div>
