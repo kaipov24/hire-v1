@@ -1,12 +1,13 @@
 import axios from 'axios'
 
 const GET_USERS = 'GET_USERS'
-
 const SEND_EMAIL = 'SEND_EMAIL'
+const SEARCH_USER = 'SEARCH_USER'
 
 const initialState = {
   users: [],
-  message: {}
+  message: {},
+  search: { field: ''}
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +16,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         users: action.users
+      }
+
+    case SEARCH_USER:
+      return {
+        ...state,
+        search: {
+          field: action.search
+        }
       }
 
     case SEND_EMAIL:
@@ -51,6 +60,10 @@ export function getUsers() {
       dispatch({ type: GET_USERS, users: data })
     })
   }
+}
+
+export function searchUser(search) {
+  return { type: SEARCH_USER, search }
 }
 
 

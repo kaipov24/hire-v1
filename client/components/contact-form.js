@@ -6,8 +6,8 @@ import { sendEmail } from '../redux/reducers/resumes'
 const Contact = () => {
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState(false)
-  const [from] = useState('kaipovich24@gmail.com')
-  const [to] = useState('kaipov.kayrat@gmail.com')
+  const [from] = useState('kaipov.kayrat@gmail.com')
+  const [to] = useState('hirepeoplewithdisabilities@gmail.com')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [skills, setSkills] = useState('')

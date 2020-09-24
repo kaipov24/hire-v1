@@ -1,21 +1,55 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { searchUser } from '../redux/reducers/resumes'
 
 const Users = () => {
+  const dispatch = useDispatch()
   const users = useSelector((store) => store.resumes.users)
+  const searchItem = useSelector((store) => store.resumes.search.field.toLowerCase())
+
+  function preSort(arr, sortBy) {
+    if (sortBy === 'lastName') {
+      return arr.sort(function alphabet(a, b) {
+        const nameA = a.lastName.toUpperCase()
+        const nameB = b.lastName.toUpperCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
+      })
+    }
+    return arr
+  }
+
+  const search =
+    searchItem.length > 1
+      ? users.filter(
+          (it) =>
+            it.firstName.toLowerCase() === searchItem ||
+            it.lastName.toLowerCase() === searchItem ||
+            it.text.toLowerCase().includes(searchItem) ||
+            it.skills.map((v) => v.toLowerCase()).includes(searchItem)
+        )
+      : users
+
+  useEffect(() => {
+    dispatch(searchUser(''))
+  }, [])
 
   return (
     <div>
       <div className="flex justify-center pt-8">
-
         <div className="md:w-3/4 w-4/5">
-          {users.map((it) => {
+          {preSort(search, 'lastName').map((it) => {
             return (
               <div key={it._id} className="md:flex bg-white  rounded-lg p-6 mb-4 shadow-lg">
                 <div className="flex flex-col w-full ">
                   <h2 className="sm:text-xl m-auto">
-                    {it.firstName} {it.lastName}{' '}
+                    {it.lastName} {it.firstName}
                   </h2>
                   <div className="flex justify-between sm:flex-row flex-col">
                     <div className="text-purple-500 sm:w-1/3 w-full">

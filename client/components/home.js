@@ -7,6 +7,7 @@ import Hero from './hero'
 
 import { getUsers } from '../redux/reducers/resumes'
 
+
 const Home = () => {
   const dispatch = useDispatch()
   const users = useSelector((store) => store.resumes.users)
